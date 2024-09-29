@@ -1,0 +1,21 @@
+## Question in 6.1
+- What happens if users choose "Cancel"?
+
+Answer:
+If user choose Cancel, a dialog with message "You've chosen: No" shown.
+
+- How to customize the options to users, e.g. only two options: "Yes" and "No", OR "I do" and "I don't"
+
+Answer:
+Add additional parameter to the showOptionDialog method.
+```
+Object[] options = {"Yes", "No"};
+    int choice = JOptionPane.showOptionDialog(null, 
+        "Do you want to proceed?", 
+        "Confirmation", 
+        JOptionPane.YES_NO_OPTION, 
+        JOptionPane.QUESTION_MESSAGE, 
+        null, 
+        options, 
+        options[0]);
+```
