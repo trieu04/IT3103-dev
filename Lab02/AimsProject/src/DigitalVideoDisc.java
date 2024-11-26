@@ -77,7 +77,12 @@ public class DigitalVideoDisc {
 	public void setCost(float costSet) {
 		cost = costSet;
 	}
-
+	
+	
+	public String toString() {
+		return "DVD - [" + title + "] - [" + (category != null ? category : "") + "] - [" + (director != null ? director : "")  + "] - [" + length + "]: " + cost + "$";
+	}
+	
 	public int getId() {
 		return id;
 	}
