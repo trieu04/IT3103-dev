@@ -16,6 +16,21 @@ public class Cart {
 			return 1;
 		}
 	}
+	
+	public int addDigitalVideoDisc(DigitalVideoDisc... dvdArray) {
+		int addCount = 0;
+		for (DigitalVideoDisc disc : dvdArray) {
+			addCount += addDigitalVideoDisc(disc);
+		}
+		return addCount;
+	}
+	
+	public int addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+		int addCount = 0;
+		addCount += addDigitalVideoDisc(dvd1);
+		addCount += addDigitalVideoDisc(dvd2);
+		return addCount;
+	}
 
 	public int removeDigitalVideoDisc(DigitalVideoDisc disc) {
 		if (itemsOrdered[0] == null) {
@@ -35,6 +50,14 @@ public class Cart {
 		}
 		System.out.println("No DVD match!");
 		return 0;
+	}
+	
+	public int removeDigitalVideoDisc(DigitalVideoDisc... dvdArray) {
+		int removeCount = 0;
+		for (DigitalVideoDisc disc : dvdArray) {
+			removeCount += removeDigitalVideoDisc(disc);
+		}
+		return removeCount;
 	}
 
 	public float totalCost() {
