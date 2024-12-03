@@ -1,2 +1,31 @@
 Q: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
 A: Yes, Java allows you to do this through constructor overloading. In Java, you can create multiple constructors within the same class as long as each constructor has a different parameter list. 
+
+
+Lab04
+
+1. What class should implement Comparable?
+- The Media class should implement Comparable to define a natural ordering for all media objects.
+2. How to implement the compareTo() method?
+@Override
+public int compareTo(Media other) {
+    int titleComparison = this.getTitle().compareTo(other.getTitle());
+    return (titleComparison != 0) ? titleComparison : Double.compare(this.getCost(), other.getCost());
+}
+
+3. Can we have two ordering rules using Comparable?
+- No, Comparable supports only one natural order. For multiple rules (e.g., cost then title), use Comparator:
+java
+
+4. Handling DVDs with unique ordering (title, decreasing length, cost)?
+@Override
+public int compareTo(Media other) {
+    if (other instanceof DVD) {
+        DVD otherDVD = (DVD) other;
+        int titleComparison = this.getTitle().compareTo(otherDVD.getTitle());
+        if (titleComparison != 0) return titleComparison;
+        int lengthComparison = Integer.compare(otherDVD.length, this.length);
+        return (lengthComparison != 0) ? lengthComparison : Double.compare(this.getCost(), otherDVD.getCost());
+    }
+    return super.compareTo(other);
+}
