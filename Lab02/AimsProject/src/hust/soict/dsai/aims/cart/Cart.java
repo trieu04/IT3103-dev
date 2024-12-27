@@ -3,6 +3,8 @@ package hust.soict.dsai.aims.cart;
 import java.util.ArrayList;
 
 import hust.soict.dsai.aims.media.Media;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
@@ -86,4 +88,8 @@ public class Cart {
 		}
 		return null;
 	}
+	
+    public ObservableList<Media> getItemsOrdered() {
+        return FXCollections.observableArrayList(itemsOrdered);
+    }
 }

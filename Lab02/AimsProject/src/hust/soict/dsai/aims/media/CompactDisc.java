@@ -1,17 +1,29 @@
 package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CompactDisc extends Disc implements Playable {
 	private String artist;
-	private ArrayList<Track> tracks = new ArrayList<Track>();
+	private List<Track> tracks = new ArrayList<Track>();
 
 	public CompactDisc() {
 		super();
 	}
+	
+    public CompactDisc(String title, String category, float cost, String artist) {
+        super();
+        this.title = title;
+        this.cost = cost;
+        this.artist = artist;
+    }
 
 	public String getArtist() {
 		return artist;
+	}
+	
+	public List<Track> getTrack() {
+		return tracks;
 	}
 
 	public int addTrack(Track track) {

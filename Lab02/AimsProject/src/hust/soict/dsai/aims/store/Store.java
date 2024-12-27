@@ -46,4 +46,10 @@ public class Store {
 		}
 		return null;
 	}
+	
+    public ArrayList<Media> getItemsOrdered() {
+        ArrayList<Media> orderedList = new ArrayList<>(itemsInStore);
+        orderedList.sort((media1, media2) -> media1.getTitle().compareToIgnoreCase(media2.getTitle()));
+        return orderedList;
+    }
 }

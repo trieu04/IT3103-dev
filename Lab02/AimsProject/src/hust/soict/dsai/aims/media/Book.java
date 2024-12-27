@@ -9,6 +9,13 @@ public class Book extends Media {
 		super();
 	}
 	
+    public Book(String title, String category, float cost) {
+    	super();
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+    }
+	
 	public int addAuthor(String authorName) {
 		if (findAuthor(authorName) == -1) {
 			authors.add(authorName);
